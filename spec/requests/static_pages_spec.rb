@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe 'Static Pages' do
 
-  describe 'Home page' do
+  subject { page }
 
-    it "should have the content 'WebSQA'" do
-      visit root_path
-      expect(page).to have_content('WebSQA')
-    end
+  describe 'Home page' do
+    before { visit root_path }
+
+    it { should have_selector('h1', text: 'WebSQA') }
+    it { should have_title('WebSQA') }
   end
 end
