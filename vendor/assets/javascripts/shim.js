@@ -1,2 +1,2 @@
 //= require html5shiv
-//= respond.min
+//= require respond.min
