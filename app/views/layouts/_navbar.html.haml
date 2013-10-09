@@ -11,12 +11,12 @@
       %ul.nav.navbar-nav
         %li{class: current_page?(root_path) && 'active'}<
           = link_to 'Home', root_path
-        %li<
-          = link_to 'Help', '#help'
-        %li<
-          = link_to 'About', '#about'
-        %li<
-          = link_to 'Contact', '#contact'
+        %li{class: current_page?(help_path) && 'active'}<
+          = link_to 'Help', help_path
+        %li{class: current_page?(about_path) && 'active'}<
+          = link_to 'About', about_path
+        %li{class: current_page?(contact_path) && 'active'}<
+          = link_to 'Contact', contact_path
       %ul.nav.navbar-nav.navbar-right
         %li<
           = link_to 'Sign in', signin_path
