@@ -1,40 +1,39 @@
 - provide(:title, 'Contact')
 %h1 Contact the Developers
-/TODO
+%blockquote
+  %p
+    We're here to help! Feel free to contact any of us if you need assistance.
+    %small 3456Software
 .row
+  /TODO
   .col-lg-4.col-sm-6
     %img.img-circle.img-responsive{src: 'holder.js/140x140'}
     %h3
-      = mail_to 'bran3@umbc.edu', 'Brandon Roberts'
+      Brandon Roberts
       %small Title
-    %blockquote
-      %p short desc?
+    %p= mail_to 'bran3@umbc.edu'
   .col-lg-4.col-sm-6
     %img.img-circle.img-responsive{src: 'holder.js/140x140'}
     %h3
-      = mail_to 'griffy1@umbc.edu', 'Griffin Yourick'
+      Griffin Yourick
       %small CTO & Development Lead
-    %blockquote
-      %p short desc?
+    %p= mail_to 'griffy1@umbc.edu'
   .col-lg-4.col-sm-6
     %img.img-circle.img-responsive{src: 'holder.js/140x140'}
     %h3
-      = mail_to 'woehlke1@umbc.edu', 'Nikolaus Woehlke'
+      Nikolaus Woehlke
       %small Title
-    %blockquote
-      %p short desc?
+    %p= mail_to 'woehlke1@umbc.edu'
   .col-lg-4.col-lg-offset-2.col-sm-6
     %img.img-circle.img-responsive{src: 'holder.js/140x140'}
     %h3
-      = mail_to 'thewalk1@umbc.edu', 'Theodore Walker'
+      Theodore Walker
       %small Title
-    %blockquote
-      %p short desc?
+    %p= mail_to 'thewalk1@umbc.edu'
   .col-lg-4.col-sm-6
     %img.img-circle.img-responsive{src: 'holder.js/140x140'}
     %h3
-      = mail_to 'tzuby1@umbc.edu', 'TJ Zuby'
+      TJ Zuby
       %small Title
-    %blockquote
-      %p short desc?
+    %p= mail_to 'tzuby1@umbc.edu'
 //TODO
