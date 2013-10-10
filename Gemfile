@@ -11,6 +11,8 @@ gem 'foreman', '~> 0.63.0'
 # sass bootstrap for rails
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
+# font awesome  for rails
+gem 'font-awesome-rails', '~> 3.2.1.3'
 
 group :development do
   gem 'pry-rails'
