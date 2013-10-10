@@ -13,19 +13,36 @@
       .service-item
         = fa_icon 'tasks', class: 'service-icon'
         %h4 Progress Tracking
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+        %p
+          Administrators assign tasks and developers report their progress.
+          Never miss a deadline again!
     .col-md-2.text-center
       .service-item
         = fa_icon 'bug', class: 'service-icon'
         %h4 Bug Management
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+        %p
+          Report bugs as they arise and be notified when their solutions are
+          implemented.
     .col-md-2.text-center
       .service-item
         = fa_icon 'group', class: 'service-icon'
         %h4 Communication
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+        %p
+          WebSQA was designed from the ground up to aid in communication between
+          project management and developers.
     .col-md-2.text-center
       .service-item
         = fa_icon 'file-text', class: 'service-icon'
         %h4 Report Generation
-        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
+        %p
+          Easily create a project status report from internal data and any
+          external data like software metrics.
+.signup
+  .row
+    .col-md-4.col-md-offset-4.text-center
+      %h2 What are you waiting for?
+      %hr
+  .row
+    .col-md-4.col-md-offset-4.text-center
+      %p Click the button below to get started today!
+      %p= link_to 'Create your organization', signup_path, class: 'btn btn-lg btn btn-primary'
