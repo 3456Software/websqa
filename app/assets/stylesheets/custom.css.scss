@@ -39,7 +39,7 @@ textarea {
   }
 }
 
-// Sign-in form
+// Forms
 .form-signin {
   margin: 0 auto;
   max-width: 330px;
@@ -52,13 +52,11 @@ textarea {
    margin-bottom: 10px;
   }
   .form-control {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     font-size: 16px;
     height: auto;
     padding: 10px;
     position: relative;
+    @include box-sizing;
     &:focus {
       z-index: 2;
     }
@@ -68,13 +66,49 @@ textarea {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       margin-bottom: -1px;
-
     }
     &[type="password"] {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       margin-bottom: 10px;
     }
+  }
+}
+
+.form-signup {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 15px;
+  .form-signup-heading {
+    margin-bottom: 10px;
+  }
+  .checkbox {
+   font-weight: normal;
+   margin-bottom: 10px;
+  }
+  .form-control {
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    @include box-sizing;
+    &:focus {
+      z-index: 2;
+    }
+  }
+  .form-top {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+  }
+  .form-middle {
+    border-radius: 0;
+    margin-bottom: -1px;
+  }
+  .form-bottom {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 10px;
   }
 }
 
