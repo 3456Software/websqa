@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 1ac49dfb04f817b7d5368c82889c66c88533dcdc
+  revision: 2ef05f8b071408bdd3c4b0c7219279ef11797dc8
   specs:
     anjlab-bootstrap-rails (3.0.0.3)
       railties (>= 3.0)
@@ -92,7 +92,7 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     minitest (4.7.5)
-    multi_json (1.8.1)
+    multi_json (1.8.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.17.0)
@@ -139,8 +139,8 @@ GEM
       rspec-mocks (~> 2.14.0)
     rubyzip (0.9.9)
     sass (3.2.12)
-    sass-rails (4.0.0)
-      railties (>= 4.0.0.beta, < 5.0)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     selenium-webdriver (2.35.1)
