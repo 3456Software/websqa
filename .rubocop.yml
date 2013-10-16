@@ -1,9 +1,8 @@
 AllCops:
   Includes:
     - Rakefile
-    - config.ru
     - Gemfile
-    - '**/Rakefile'
+    - config.ru
   Excludes:
     - db/**
   RunRailsCops: true
