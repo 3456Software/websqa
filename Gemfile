@@ -7,6 +7,7 @@ gem 'pg', '~> 0.17.0'
 gem 'haml-rails', '~> 0.4'
 gem 'unicorn', '~> 4.6.3'
 gem 'foreman', '~> 0.63.0'
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # sass bootstrap for rails
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
