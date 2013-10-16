@@ -11,7 +11,7 @@ describe User do
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
-  it { should respond_to(:password)}
+  it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
 
@@ -44,7 +44,7 @@ describe User do
   context 'when email form is invalid' do
     it 'should be invalid' do
       addresses = %w[user@foo,com user_at_foo.org example_user@foo
-        foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+                     foo@bar_baz.com foo@bar+baz.com foo@bar..com]
       addresses.each do |invalid_address|
         @user.email = invalid_address
         expect(@user).not_to be_valid
@@ -74,7 +74,7 @@ describe User do
   context 'when password is not present' do
     before do
       @user = User.new(name: 'Example User', email: 'user@example.com',
-                     password: ' ', password_confirmation: ' ')
+                       password: ' ', password_confirmation: ' ')
     end
     it { should_not be_valid }
   end
@@ -103,5 +103,4 @@ describe User do
       specify { expect(user_for_invalid_password).to be_false }
     end
   end
-
 end

@@ -1,0 +1,15 @@
+AllCops:
+  Includes:
+    - Rakefile
+    - config.ru
+    - Gemfile
+    - '**/Rakefile'
+  Excludes:
+    - db/**
+  RunRailsCops: true
+
+LineLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false

@@ -1,18 +1,16 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+# most importantly, rails!
 gem 'rails', '~> 4.0.0'
-
+# other important gems
 gem 'pg', '~> 0.17.0'
 gem 'haml-rails', '~> 0.4'
 gem 'unicorn', '~> 4.6.3'
 gem 'foreman', '~> 0.63.0'
 gem 'bcrypt-ruby', '~> 3.0.1'
-
-# sass bootstrap for rails
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
-# font awesome  for rails
+# style/assets gems
+gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails', '~> 3.2.1.3'
 
 group :development, :test do
@@ -24,6 +22,7 @@ group :development do
   gem 'awesome_print' # recommended for pry
   gem 'better_errors'
   gem 'binding_of_caller' # improves better_errors
+  gem 'rubocop'
 end
 
 group :test do
