@@ -207,7 +207,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.1.0)
-  coffee-rails (~> 4.0.0)
+  coffee-rails (~> 4.0.1)
   factory_girl_rails (~> 4.2.1)
   faker (~> 1.2.0)
   font-awesome-rails (~> 3.2.1.3)
