@@ -1,6 +1,6 @@
-- provide(:title, 'Sign up')
+- provide(:title, 'Edit user')
 = form_for(@user, html: {class: 'form-signup'}) do |f|
-  %h2.form-signup-heading Sign up
+  %h2.form-signup-heading Update your settings
   = render 'shared/error_messages', object: f.object
 
   = f.text_field :name, class: 'form-control form-top', placeholder: 'Name'
@@ -8,4 +8,8 @@
   = f.password_field :password, class: 'form-control form-mid', placeholder: 'Password'
   = f.password_field :password_confirmation, class: 'form-control form-bot', placeholder: 'Confirmation'
 
-  = f.submit 'Create my account', class: 'btn btn-lg btn-primary btn-block'
+  = f.submit 'Save changes', class: 'btn btn-lg btn-primary btn-block'
+%p.text-center
+  %br
+  = gravatar_for @user
+  = link_to 'change', 'http://gravatar.com/emails', target: '_blank'
