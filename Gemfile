@@ -9,6 +9,7 @@ gem 'haml-rails', '~> 0.4'
 gem 'unicorn', '~> 4.6.3'
 gem 'foreman', '~> 0.63.0'
 gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'faker', '~> 1.2.0'
 # style/assets gems
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
                               github: 'anjlab/bootstrap-rails'
@@ -35,7 +36,7 @@ end
 # some rails defaults
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '~> 2.2.1'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '~> 1.3.0'
 gem 'jbuilder', '~> 1.5.2'
