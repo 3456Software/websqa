@@ -108,6 +108,20 @@ textarea {
   }
 }
 
+// Users index
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+    &:last-child {
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
 // Debug dump
 .debug_dump {
   clear: both;

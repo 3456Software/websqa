@@ -19,6 +19,8 @@
           = link_to 'Contact', contact_path
       %ul.nav.navbar-nav.navbar-right
         - if signed_in?
+          %li{class: current_page?(users_path) && 'active'}<
+            = link_to 'Users', users_path
           %li.dropdown
             %a.dropdown-toggle{href: '#', data: { toggle: 'dropdown'} }<
               Account

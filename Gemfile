@@ -10,6 +10,8 @@ gem 'unicorn', '~> 4.6.3'
 gem 'foreman', '~> 0.63.0'
 gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'faker', '~> 1.2.0'
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap', '~> 1.0.0'
 # style/assets gems
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
                               github: 'anjlab/bootstrap-rails'
