@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.0.0
+script: "bundle exec rake spec"
+notifications:
+  email:
+    recipients:
+      - gryphon92@gmail.com
+    on_success: change
+    on_failure: always
+before_script:
+  - psql -c 'create database websqa_test;' -U postgres
+env:
+  - RAILS_ENV=test
