@@ -1,4 +1,5 @@
-# WebSQA 
+# WebSQA
+[![Dependency Status](https://gemnasium.com/3456Software/websqa.png)](https://gemnasium.com/3456Software/websqa)
 [![Build Status](https://travis-ci.org/3456Software/websqa.png?branch=master)](https://travis-ci.org/3456Software/websqa)
 [![Coverage Status](https://coveralls.io/repos/3456Software/websqa/badge.png?branch=master)](https://coveralls.io/r/3456Software/websqa?branch=master)
 

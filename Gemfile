@@ -15,7 +15,7 @@ gem 'will_paginate-bootstrap', '~> 1.0.0'
 # style/assets gems
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
                               github: 'anjlab/bootstrap-rails'
-gem 'font-awesome-rails', '~> 3.2.1.3'
+gem 'font-awesome-rails', '~> 4.0.0.0'
 # coverage metrics
 gem 'coveralls', require: false
 
