@@ -12,17 +12,7 @@ efficient communication of progress and requirements between
 Please see the **UMBC** CMSC 345 Fall 2013
 [project requirements](http://www.csee.umbc.edu/~squire/cs345_proj.shtml).
 
-## Developer instructions
- Clone the repository:
-```
-git clone git@github.com:3456Software/websqa.git
-```
-Set up necessary ruby gems:
-```
-gem update --system
-gem update bundler
-bundle install --without production
-```
+Developers, see [the setup instructions](https://github.com/3456Software/websqa/blob/master/SETUP.md).
 
 ## Contributors
  - Griffin Yourick <[gryphon92@gmail.com](mailto:gryphon92@gmail.com)>
