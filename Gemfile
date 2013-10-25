@@ -18,14 +18,15 @@ gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
 gem 'font-awesome-rails', '~> 4.0.0.0'
 # coverage metrics
 gem 'coveralls', require: false
+# replace rails console with
+gem 'pry-rails'
+gem 'awesome_print'     # recommended for pry
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
 end
 
 group :development do
-  gem 'pry-rails'
-  gem 'awesome_print'     # recommended for pry
   gem 'better_errors'
   gem 'binding_of_caller' # improves better_errors
   gem 'rubocop'
