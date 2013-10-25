@@ -19,8 +19,8 @@ gem 'font-awesome-rails', '~> 4.0.0.0'
 # coverage metrics
 gem 'coveralls', require: false
 # replace rails console with
-gem 'pry-rails'
-gem 'awesome_print'     # recommended for pry
+gem 'pry-rails', '~> 0.3.2'
+gem 'awesome_print', '~> 1.2.0'     # recommended for pry
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
