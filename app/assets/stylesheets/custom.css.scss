@@ -14,28 +14,27 @@ textarea {
   resize: vertical;
 }
 
-// Footer
-.footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #e5e5e5;
-  color: #999;
-  a {
-    color: #555;
-    &:hover {
-      color: #222;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
+// Home/Welcome Page
+.services {
+  padding: 50px 0;
+}
+
+.service-item {
+  margin-bottom: 15px;
+}
+
+i.service-icon {
+  display: inline-block;
+  width: 140px;
+  height: 140px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 56px;
+  line-height: 136px;
+  &:hover {
+    font-size: 68px;
   }
 }
 
@@ -118,6 +117,31 @@ textarea {
     border-top: 1px solid #e5e5e5;
     &:last-child {
       border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
+// Footer
+.footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #e5e5e5;
+  color: #999;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
     }
   }
 }
