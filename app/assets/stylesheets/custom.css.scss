@@ -1,7 +1,7 @@
 // Mixins, variables, etc.
 @mixin box-sizing {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -16,10 +16,10 @@ textarea {
 
 // Footer
 .footer {
-  border-top: 1px solid #e5e5e5;
-  color: #999;
   margin-top: 45px;
   padding-top: 5px;
+  border-top: 1px solid #e5e5e5;
+  color: #999;
   a {
     color: #555;
     &:hover {
@@ -42,80 +42,80 @@ textarea {
 // Forms
 .form-signin {
   margin: 0 auto;
-  max-width: 330px;
   padding: 15px;
+  max-width: 330px;
   .form-signin-heading {
     margin-bottom: 10px;
   }
   .checkbox {
-    font-weight: normal;
     margin-bottom: 10px;
+    font-weight: normal;
   }
   .form-control {
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    position: relative;
     @include box-sizing;
+    position: relative;
+    padding: 10px;
+    height: auto;
+    font-size: 16px;
     &:focus {
       z-index: 2;
     }
   }
   input {
     &[type="text"] {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
       margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
     &[type="password"] {
+      margin-bottom: 10px;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      margin-bottom: 10px;
     }
   }
 }
 
 .form-user {
   margin: 0 auto;
-  max-width: 400px;
   padding: 15px;
+  max-width: 400px;
   .form-user-heading {
     margin-bottom: 10px;
   }
   .form-control {
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    position: relative;
     @include box-sizing;
+    position: relative;
+    padding: 10px;
+    height: auto;
+    font-size: 16px;
     &:focus {
       z-index: 2;
     }
   }
   .form-top {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
   }
   .form-mid {
-    border-radius: 0;
     margin-bottom: -1px;
+    border-radius: 0;
   }
   .form-bot {
+    margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    margin-bottom: 10px;
   }
 }
 
 // Users index
 .users {
-  list-style: none;
   margin: 0;
+  list-style: none;
   li {
-    border-top: 1px solid #e5e5e5;
     overflow: auto;
     padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
     &:last-child {
       border-bottom: 1px solid #e5e5e5;
     }
@@ -124,9 +124,9 @@ textarea {
 
 // Debug dump
 .debug_dump {
-  clear: both;
+  @include box-sizing;
   float: left;
+  clear: both;
   margin-top: 45px;
   width: 100%;
-  @include box-sizing;
 }
