@@ -1,4 +1,9 @@
 - provide(:title, @user.name)
-%h1
-  = gravatar_for @user
-  = @user.name
+.row
+  %aside.col-lg-4
+    %section
+      %h1
+        = gravatar_for @user
+        = @user.name
+      - if @user.admin?
+        %p.admin-tag Admin

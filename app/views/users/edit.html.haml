@@ -4,6 +4,5 @@
   = render 'fields', f: f
   = f.submit 'Save changes', class: 'btn btn-lg btn-primary btn-block'
 %p.text-center
-  %br
   = gravatar_for @user
   = link_to 'change', 'http://gravatar.com/emails', target: '_blank'
