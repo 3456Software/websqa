@@ -121,7 +121,7 @@ i.service-icon {
   }
 }
 
-// User page
+// Sidebar
 aside {
   section {
     padding: 10px 0;
@@ -145,6 +145,29 @@ aside {
   }
 }
 
+// Project Requirements
+.requirements {
+  list-style: none;
+  margin: 10px 0 0 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.content {
+  display: block
+}
+
+.timestamp {
+  color: #999;
+}
+
+.checkbox {
+  float: right;
+}
+
+// Misc
 .gravatar {
   float: left;
   margin-right: 10px;

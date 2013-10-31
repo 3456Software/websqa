@@ -1,4 +1,5 @@
 Websqa::Application.routes.draw do
+  match '/project', to: 'mockups#project',      via: 'get'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   root 'static_pages#home'
