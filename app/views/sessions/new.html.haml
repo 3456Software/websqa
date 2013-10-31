@@ -1,10 +1,8 @@
 - provide(:title, 'Sign in')
 = form_for(:session, url: sessions_path, html: { class: 'form-signin' }) do |f|
   %h2.form-signin-heading Sign in
-
   = f.text_field :email, class: 'form-control', placeholder: 'Email'
   = f.password_field :password, class: 'form-control', placeholder: 'Password'
-
   = f.submit 'Sign in', class: 'btn btn-lg btn-primary btn-block'
   %p.text-center
     %br

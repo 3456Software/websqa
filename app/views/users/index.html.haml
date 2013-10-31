@@ -1,11 +1,8 @@
 - provide(:title, 'All users')
 %h1 All users
-
 .text-center
   = will_paginate @users, renderer: BootstrapPagination::Rails, class: 'pagination-lg', previous_label: '&laquo;', next_label: '&raquo;'
-
 %ul.users
   = render @users
-
 .text-center
   = will_paginate @users, renderer: BootstrapPagination::Rails, class: 'pagination-lg', previous_label: '&laquo;', next_label: '&raquo;'
