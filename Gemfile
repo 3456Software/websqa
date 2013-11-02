@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # most importantly, rails!
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.0.1'
 # other important gems
 gem 'pg', '~> 0.17.0'
 gem 'haml-rails', '~> 0.4'
 gem 'unicorn', '~> 4.6.3'
 gem 'foreman', '~> 0.63.0'
-gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'faker', '~> 1.2.0'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
@@ -17,7 +17,7 @@ gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails',
                               github: 'anjlab/bootstrap-rails'
 gem 'font-awesome-rails', '~> 4.0.1'
 # coverage metrics
-gem 'coveralls', require: false
+gem 'coveralls', '~> 0.7.0', require: false
 # replace rails console with
 gem 'pry-rails', '~> 0.3.2'
 gem 'awesome_print', '~> 1.2.0'     # recommended for pry
@@ -27,9 +27,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller' # improves better_errors
-  gem 'rubocop'
+  gem 'better_errors', '~> 1.0.1'
+  gem 'binding_of_caller', '~> 0.7.1' # improves better_errors
+  gem 'rubocop', '~> 0.14.1'
 end
 
 group :test do
