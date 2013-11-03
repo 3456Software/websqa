@@ -9,4 +9,9 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :project do
+    sequence(:title) { |n| "Project #{n}" }
+    sequence(:desc)  { |n| "A short description of project #{n}" }
+  end
 end

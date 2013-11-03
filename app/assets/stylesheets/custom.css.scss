@@ -5,9 +5,19 @@
   box-sizing: border-box;
 }
 
+// TODO organize into separate files
+
 // Site-wide
+html {
+  overflow-y: scroll;
+}
+
 body {
   padding-top: 70px;
+}
+
+section {
+  overflow: auto;
 }
 
 textarea {
@@ -39,27 +49,42 @@ i.service-icon {
 }
 
 // Forms
+.form-control {
+  @include box-sizing;
+  position: relative;
+  padding: 10px;
+  height: auto;
+  font-size: 16px;
+  &:focus {
+    z-index: 2;
+  }
+}
+
+.form-top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-mid {
+  margin-bottom: -1px;
+  border-radius: 0;
+}
+
+.form-bot {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-heading {
+  margin-bottom: 10px;
+}
+
 .form-signin {
   margin: 0 auto;
   padding: 15px;
   max-width: 330px;
-  .form-signin-heading {
-    margin-bottom: 10px;
-  }
-  .checkbox {
-    margin-bottom: 10px;
-    font-weight: normal;
-  }
-  .form-control {
-    @include box-sizing;
-    position: relative;
-    padding: 10px;
-    height: auto;
-    font-size: 16px;
-    &:focus {
-      z-index: 2;
-    }
-  }
   input {
     &[type="text"] {
       margin-bottom: -1px;
@@ -78,33 +103,12 @@ i.service-icon {
   margin: 0 auto;
   padding: 15px;
   max-width: 400px;
-  .form-user-heading {
-    margin-bottom: 10px;
-  }
-  .form-control {
-    @include box-sizing;
-    position: relative;
-    padding: 10px;
-    height: auto;
-    font-size: 16px;
-    &:focus {
-      z-index: 2;
-    }
-  }
-  .form-top {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .form-mid {
-    margin-bottom: -1px;
-    border-radius: 0;
-  }
-  .form-bot {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+}
+
+.form-project {
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 600px;
 }
 
 // Users index
@@ -117,6 +121,23 @@ i.service-icon {
     border-top: 1px solid #e5e5e5;
     &:last-child {
       border-bottom: 1px solid #e5e5e5;
+    }
+  }
+}
+
+// Projects index
+.projects {
+  margin: 0;
+  list-style: none;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+    &:last-child {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .btn {
+      float: right;
     }
   }
 }
@@ -147,16 +168,16 @@ aside {
 
 // Project Requirements
 .requirements {
-  list-style: none;
   margin: 10px 0 0 0;
+  list-style: none;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    border-top: 1px solid #e5e5e5;
   }
 }
 
 .content {
-  display: block
+  display: block;
 }
 
 .timestamp {

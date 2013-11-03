@@ -1,8 +1,7 @@
 Websqa::Application.routes.draw do
-  match '/project', to: 'mockups#project',      via: 'get'
-  match '/project_admin', to: 'mockups#project_admin', via: 'get'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :projects
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -10,4 +9,7 @@ Websqa::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/project', to: 'mockups#project',      via: 'get'
+  match '/project_admin', to: 'mockups#project_admin', via: 'get'
 end

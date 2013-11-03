@@ -1,6 +1,6 @@
 - provide(:title, 'Edit user')
 = form_for(@user, html: {class: 'form-user'}) do |f|
-  %h2.form-user-heading Update your settings
+  %h2.form-heading Update your settings
   = render 'fields', f: f
   = f.submit 'Save changes', class: 'btn btn-lg btn-primary btn-block'
 %p.text-center

@@ -1,0 +1,5 @@
+- provide(:title, 'Edit project')
+= form_for(@project, html: {class: 'form-project'}) do |f|
+  %h2.form-heading Project administration
+  = render 'fields', f: f
+  = f.submit 'Save changes', class: 'btn btn-lg btn-primary btn-block'

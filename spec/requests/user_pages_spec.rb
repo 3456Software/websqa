@@ -10,7 +10,7 @@ describe 'User pages' do
     it { should have_title(full_title('Sign up')) }
   end
 
-  describe 'signup' do
+  describe 'signup process' do
     before { visit signup_path }
     let(:submit) { 'Create my account' }
 

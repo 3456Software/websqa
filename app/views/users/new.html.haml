@@ -1,5 +1,5 @@
 - provide(:title, 'Sign up')
 = form_for(@user, html: {class: 'form-user'}) do |f|
-  %h2.form-user-heading Sign up
+  %h2.form-heading Sign up
   = render 'fields', f: f
   = f.submit 'Create my account', class: 'btn btn-lg btn-primary btn-block'
