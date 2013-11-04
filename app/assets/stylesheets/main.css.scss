@@ -1,6 +1,6 @@
 @import "bootstrap/mixins";
 
-// Site-wide
+// --- Global ---
 html {
   overflow-y: scroll;
 }
@@ -14,10 +14,19 @@ section {
 }
 
 textarea {
-  resize: vertical;
+  @include resizable(vertical);
 }
 
-// Home/Welcome Page
+// Debug dump
+.debug_dump {
+  @include box-sizing(border-box);
+  float: left;
+  clear: both;
+  margin-top: 45px;
+  width: 100%;
+}
+
+// --- Home/Welcome Page ---
 .services {
   padding: 50px 0;
 }
@@ -41,7 +50,8 @@ i.service-icon {
   }
 }
 
-// Users index
+// --- Users ---
+// Index
 .users {
   margin: 0;
   list-style: none;
@@ -52,13 +62,24 @@ i.service-icon {
     &:last-child {
       border-bottom: 1px solid #e5e5e5;
     }
-    .gravatar {
+    img {
       float: left;
     }
   }
 }
 
-// Projects index
+// Misc
+.gravatar {
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.admin-tag {
+  color: #999;
+}
+
+// --- Projects ---
+// Index
 .projects {
   margin: 0;
   list-style: none;
@@ -75,31 +96,7 @@ i.service-icon {
   }
 }
 
-// Sidebar
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid #e5e5e5;
-    &:first-child {
-      padding-top: 0;
-      border: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      margin-top: 0;
-      margin-bottom: 3px;
-      text-align: left;
-      letter-spacing: -1px;
-      font-size: 1.4em;
-    }
-  }
-}
-
-// Project Requirements
+// Requirements
 .requirements {
   margin: 10px 0 0;
   list-style: none;
@@ -107,35 +104,13 @@ aside {
     padding: 10px 0;
     border-top: 1px solid #e5e5e5;
   }
-}
-
-.content {
-  display: block;
-}
-
-.timestamp {
-  color: #999;
-}
-
-.checkbox {
-  float: right;
-}
-
-// Misc
-.gravatar {
-  margin-right: 10px;
-  border-radius: 4px;
-}
-
-.admin-tag {
-  color: #999;
-}
-
-// Debug dump
-.debug_dump {
-  @include box-sizing(border-box);
-  float: left;
-  clear: both;
-  margin-top: 45px;
-  width: 100%;
+  .content {
+    display: block;
+  }
+  .timestamp {
+    color: #999;
+  }
+  .checkbox {
+    float: right;
+  }
 }

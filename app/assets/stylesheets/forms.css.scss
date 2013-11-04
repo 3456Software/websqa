@@ -17,7 +17,7 @@
   }
 }
 
-// Attached forms
+// Attached Fields
 .form-top {
   @include border-bottom-radius(0);
   margin-bottom: -1px;
@@ -34,7 +34,7 @@
   margin-bottom: 10px;
 }
 
-// form sizing
+// Form sizing
 .form-signin {
   @include form-overrides;
   max-width: 330px;
