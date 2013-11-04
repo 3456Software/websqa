@@ -1,16 +1,8 @@
 @import "bootstrap/mixins";
 
 // --- Global ---
-html {
-  overflow-y: scroll;
-}
-
 body {
   padding-top: 70px;
-}
-
-section {
-  overflow: auto;
 }
 
 textarea {
