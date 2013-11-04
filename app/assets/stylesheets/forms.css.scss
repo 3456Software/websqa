@@ -1,0 +1,51 @@
+@import "bootstrap/mixins";
+
+@mixin form-overrides {
+  margin: 0 auto;
+  padding: 15px;
+}
+
+// .form-control overrides
+.form-control {
+  @include box-sizing(border-box);
+  position: relative;
+  padding: 10px;
+  height: auto;
+  font-size: 16px;
+  &:focus {
+    z-index: 2;
+  }
+}
+
+// Attached forms
+.form-top {
+  @include border-bottom-radius(0);
+  margin-bottom: -1px;
+}
+
+.form-mid {
+  @include border-bottom-radius(0);
+  @include border-top-radius(0);
+  margin-bottom: -1px;
+}
+
+.form-bot {
+  @include border-top-radius(0);
+  margin-bottom: 10px;
+}
+
+// form sizing
+.form-signin {
+  @include form-overrides;
+  max-width: 330px;
+}
+
+.form-user {
+  @include form-overrides;
+  max-width: 400px;
+}
+
+.form-project {
+  @include form-overrides;
+  max-width: 600px;
+}
