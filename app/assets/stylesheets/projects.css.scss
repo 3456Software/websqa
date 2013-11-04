@@ -1,0 +1,35 @@
+// Index
+.projects {
+  margin: 0;
+  list-style: none;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+    &:last-child {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .btn {
+      float: right;
+    }
+  }
+}
+
+// Requirements
+.requirements {
+  margin: 10px 0 0;
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+  }
+  .content {
+    display: block;
+  }
+  .timestamp {
+    color: #999;
+  }
+  .checkbox {
+    float: right;
+  }
+}

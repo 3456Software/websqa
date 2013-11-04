@@ -1,0 +1,26 @@
+// Index
+.users {
+  margin: 0;
+  list-style: none;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e5;
+    &:last-child {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    img {
+      float: left;
+    }
+  }
+}
+
+// Misc
+.gravatar {
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.admin-tag {
+  color: #999;
+}
