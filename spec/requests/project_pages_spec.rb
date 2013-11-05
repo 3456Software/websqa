@@ -5,13 +5,21 @@ describe 'Project pages' do
   subject { page }
 
   describe 'new project page' do
-    before { visit new_project_path }
+    let(:admin) { FactoryGirl.create(:admin) }
+    before do
+      sign_in admin
+      visit new_project_path
+    end
     it { should have_content('new project') }
     it { should have_title(full_title('New project')) }
   end
 
   describe 'creating new project' do
-    before { visit new_project_path }
+    let(:admin) { FactoryGirl.create(:admin) }
+    before do
+      sign_in admin
+      visit new_project_path
+    end
     let(:submit) { 'Create project' }
 
     context 'with invalid information' do
@@ -45,17 +53,34 @@ describe 'Project pages' do
   end
 
   describe 'project page' do
+    let(:user) { FactoryGirl.create(:user) }
     let(:project) { FactoryGirl.create(:project) }
-    before { visit project_path(project) }
+    before do
+      sign_in user
+      visit project_path(project)
+    end
     it { should have_content(project.title) }
     it { should have_title(project.title) }
+    it { should_not have_link('Project administration')}
+
+    context 'as an admin user' do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin
+        visit project_path(project)
+      end
+      it { should have_link('Project administration') }
+    end
   end
 
   describe 'edit' do
+    let(:admin) { FactoryGirl.create(:admin) }
     let(:project) { FactoryGirl.create(:project) }
-    before { visit edit_project_path(project) }
-
-    describe ' page' do
+    before do
+      sign_in admin
+      visit edit_project_path(project)
+    end
+    describe 'page' do
       it { should have_content('Project administration') }
       it { should have_title('Edit project') }
     end
@@ -80,6 +105,45 @@ describe 'Project pages' do
       it { should have_selector('div.alert.alert-success', text: 'updated') }
       specify { expect(project.reload.title).to eq new_title }
       specify { expect(project.reload.desc).to eq new_desc }
+    end
+  end
+
+  describe 'index' do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:all) { 30.times { FactoryGirl.create(:project) } }
+    after(:all) { Project.delete_all }
+    before do
+      sign_in user
+      visit projects_path
+    end
+    it { should have_title('Projects') }
+    it { should have_content('Projects') }
+
+    describe 'pagination' do
+      it { should have_selector('ul.pagination') }
+      it 'should list each project' do
+        Project.paginate(page: 1, per_page: 10).each do |project|
+          expect(page).to have_selector('li', text: project.title)
+        end
+      end
+    end
+
+    describe 'delete links' do
+      it { should_not have_link('delete') }
+
+      context 'as an admin user' do
+        let(:admin) { FactoryGirl.create(:admin) }
+        before do
+          sign_in admin
+          visit projects_path
+        end
+        it { should have_link('delete', href: project_path(Project.first)) }
+        it 'should be able to delete a project' do
+          expect do
+            click_link('delete', match: :first)
+          end.to change(Project, :count).by(-1)
+        end
+      end
     end
   end
 end

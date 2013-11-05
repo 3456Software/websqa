@@ -59,6 +59,20 @@ describe 'Authentication' do
         end
       end
 
+      describe 'in the Projects controller' do
+        let(:project) { FactoryGirl.create(:project) }
+
+        context 'visiting the show page' do
+          before { visit project_path(project) }
+          it { should have_title('Sign in') }
+        end
+
+        context 'visiting the project index' do
+          before { visit projects_path }
+          it { should have_title('Sign in') }
+        end
+      end
+
       describe 'attempting to visit a protected page' do
         before do
           visit edit_user_path(user)
@@ -106,9 +120,41 @@ describe 'Authentication' do
       let(:non_admin) { FactoryGirl.create(:user) }
       before { sign_in non_admin, no_capybara: true }
 
-      describe 'submitting a DELETE request to the Users#destroy action' do
-        before { delete user_path(user) }
-        specify { expect(response).to redirect_to(root_url) }
+      context 'in the Users controller' do
+
+        describe 'submitting a DELETE request to the Users#destroy action' do
+          before { delete user_path(user) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Projects controller' do
+        let(:project) { FactoryGirl.create(:project) }
+
+        describe 'submitting a GET request to the Projects#new action' do
+          before { get new_project_path }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a POST request to the Projects#create action' do
+          before { post projects_path }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a GET request to the Projects#edit action' do
+          before { get edit_project_path(project) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a PATCH request to the Projects#update action' do
+          before { patch project_path(project) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a DELETE request to the Projects#destroy action' do
+          before { delete project_path(project) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
       end
     end
   end

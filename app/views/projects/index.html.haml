@@ -1,6 +1,7 @@
 - provide(:title, 'Projects')
 %h1 Projects
-%p= link_to 'Create a new project', new_project_path
+- if current_user.admin?
+  %p= link_to 'Create a new project', new_project_path
 .text-center
   = will_paginate @projects, renderer: BootstrapPagination::Rails, class: 'pagination-lg', previous_label: '&laquo;', next_label: '&raquo;'
 %ul.projects
