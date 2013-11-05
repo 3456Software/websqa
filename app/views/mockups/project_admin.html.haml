@@ -1,12 +1,11 @@
 .row
-  %form.form-project.col-lg-6.col-lg-offset-3
-    %h2.form-heading
+  %form.form-project
+    %h2.form-heading Project administration
     .form-group
-      %label Project Name
+      %label Title
       %input.form-control{type: 'text'}
     .form-group
-      %label Project Description
+      %label Description
       %textarea.form-control{type: 'textarea'}
-    %p
-      %a{href: '#'} Add a requirement
-    %input.btn.btn-primary{type: 'submit'}
+    %a.btn.btn-lg.btn-warning.btn-block{href: 'staff_admin'} Manage users
+    %a.btn.btn-lg.btn-primary.btn-block{href: 'project_home'} Save changes

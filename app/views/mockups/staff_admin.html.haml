@@ -1,0 +1,36 @@
+.text-center
+  %h1 Project Title
+  %p Add or remove staff from the project
+.row
+  .col-lg-6.col-lg-offset-3
+    %ul.users
+      %li
+        - @user = User.find(1)
+        %a.btn.btn-danger{href: 'project_admin'}= fa_icon 'minus'
+        = gravatar_for @user
+        = link_to @user.name, @user
+      %li
+        - @user = User.find(2)
+        %a.btn.btn-danger{href: 'project_admin'}= fa_icon 'minus'
+        = gravatar_for @user
+        = link_to @user.name, @user
+      %li
+        - @user = User.find(5)
+        %a.btn.btn-primary{href: 'project_admin'}= fa_icon 'plus'
+        = gravatar_for @user
+        = link_to @user.name, @user
+      %li
+        - @user = User.find(6)
+        %a.btn.btn-primary{href: 'project_admin'}= fa_icon 'plus'
+        = gravatar_for @user
+        = link_to @user.name, @user
+      %li
+        - @user = User.find(3)
+        %a.btn.btn-danger{href: 'project_admin'}= fa_icon 'minus'
+        = gravatar_for @user
+        = link_to @user.name, @user
+      %li
+        - @user = User.find(4)
+        %a.btn.btn-primary{href: 'project_admin'}= fa_icon 'plus'
+        = gravatar_for @user
+        = link_to @user.name, @user

@@ -1,0 +1,57 @@
+.row
+  %aside.col-lg-4
+    %section
+      %h1 Project Title
+      %p A short description of the example project lies here.
+      %p= link_to 'Project administration', 'project_admin'
+    %section
+      %h1 Users
+      %ul.users-small
+        %li
+          - @user = User.find(1)
+          = gravatar_for @user
+          = link_to @user.name, @user
+        %li
+          - @user = User.find(2)
+          = gravatar_for @user
+          = link_to @user.name, @user
+        %li
+          - @user = User.find(3)
+          = gravatar_for @user
+          = link_to @user.name, @user
+  .col-lg-8
+    %h3 Progress
+    %ul.requirements
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content Requirements text goes here
+        %span.timestamp Posted [at this time]
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content= link_to 'Bug Report text goes here', '#'
+        %span.timestamp Posted [at this time]
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content Document update goes here
+        %span.timestamp Posted [at this time]
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content Requirements text goes here
+        %span.timestamp Posted [at this time]
+      %li
+        %span.content= link_to 'Meeting name goes here', '#'
+        %span.timestamp Posted [at this time]
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content= link_to 'Bug Report text goes here', '#'
+        %span.timestamp Posted [at this time]
+      %li
+        %input.checkbox{type: 'checkbox'}
+        %span.content Document update goes here
+        %span.timestamp Posted [at this time]
+    .text-center
+      .btn-group.btn-group-sm
+        = link_to 'Add a requirement', '#', class: 'btn btn-primary'
+        = link_to 'Log a meeting', '#', class: 'btn btn-primary'
+        = link_to 'Report a bug', '#', class: 'btn btn-primary'
+

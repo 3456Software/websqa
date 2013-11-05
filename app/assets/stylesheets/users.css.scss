@@ -12,6 +12,20 @@
     img {
       float: left;
     }
+    .btn {
+      float: right;
+    }
+  }
+}
+
+.users-small {
+  @extend .users;
+  li {
+    padding: 6px 0;
+    border-top: none;
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }
 

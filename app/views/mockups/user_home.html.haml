@@ -1,0 +1,28 @@
+.row
+  %aside.col-lg-4
+    %section
+      %h1
+        - @user = User.find(1)
+        = gravatar_for @user
+        = @user.name
+      - if @user.admin?
+        %p.admin-tag Admin
+  .col-lg-8
+    %h3 Projects
+    %ul.projects
+      %li
+        = link_to 'Delete', '#', class: 'btn btn-danger'
+        = link_to 'Project 1', '#'
+        %p You are a member of this project, amongst others.
+      %li
+        = link_to 'Delete', '#', class: 'btn btn-danger'
+        = link_to 'Project 2', '#'
+        %p
+          You are a member of this project, amongst others.
+          Sometimes there will be more text in the description.
+      %li
+        = link_to 'Delete', '#', class: 'btn btn-danger'
+        = link_to 'My Project 3', '#'
+        %p
+          You are a member of this project, amongst others.
+          This is the third project in your organization.
