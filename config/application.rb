@@ -19,9 +19,5 @@ module Websqa
     config.generators do |g|
       g.assets false
     end
-
-    config.active_record do |ar|
-      ar.schema_format :sql
-    end
   end
 end
