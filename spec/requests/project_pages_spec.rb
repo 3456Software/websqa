@@ -55,6 +55,8 @@ describe 'Project pages' do
   describe 'project page' do
     let(:user) { FactoryGirl.create(:user) }
     let(:project) { FactoryGirl.create(:project) }
+    let!(:req1) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 1')}
+    let!(:req2) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 2')}
     before do
       sign_in user
       visit project_path(project)
@@ -70,6 +72,11 @@ describe 'Project pages' do
         visit project_path(project)
       end
       it { should have_link('Project administration') }
+    end
+
+    describe 'requirements' do
+      it { should have_content(req1.name) }
+      it { should have_content(req2.name) }
     end
   end
 

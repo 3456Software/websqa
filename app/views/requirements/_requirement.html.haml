@@ -1,0 +1,6 @@
+%li
+  /put a checkbox or button for marking a requirement as met
+  %span.name
+    %strong Requirement:
+    = requirement.name
+  %span.timestamp= "Posted #{time_ago_in_words(requirement.created_at)} ago."
