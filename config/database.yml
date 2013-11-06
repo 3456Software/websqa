@@ -19,7 +19,7 @@ development: &default
   encoding: unicode
   database: websql_dev
   username: postgres
-  password:
+  password: postgres
 
 test:
   <<: *default
