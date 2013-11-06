@@ -20,6 +20,8 @@ module Websqa
       g.assets false
     end
 
-    config.active_record.schema_format = :sql
+    config.active_record do |ar|
+      ar.schema_format :sql
+    end
   end
 end
