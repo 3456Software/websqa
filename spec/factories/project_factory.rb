@@ -9,6 +9,9 @@
 #  updated_at :datetime
 #
 
-class Project < ActiveRecord::Base
-  validates :title, presence: true, length: { maximum: 50 }
+FactoryGirl.define do
+  factory :project do
+    sequence(:title) { |n| "Project #{n}" }
+    sequence(:desc)  { |n| "A short description of project #{n}." }
+  end
 end
