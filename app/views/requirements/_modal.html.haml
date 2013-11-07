@@ -4,8 +4,9 @@
       .modal-header
         %button.close{ type: 'button', data: { dismiss: 'modal' }, aria: { hidden: 'true' } }   &times;
         %h4#requirement_label.modal-title Add a requirement
-      .modal-body
-        Put the form here
-      .modal-footer
-        %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
-        %button.btn.btn-primary{ type: 'button'} Save changes
+      = form_for(@project.requirements.build) do |f|
+        .modal-body
+          = f.text_field :name, class: 'form-control'
+        .modal-footer
+          %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
+          = f.submit 'Save requirement', class: 'btn btn-primary'

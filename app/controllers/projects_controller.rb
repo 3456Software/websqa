@@ -36,7 +36,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @requirements = @project.requirements
   end
 
   def destroy

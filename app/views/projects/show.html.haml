@@ -10,7 +10,7 @@
     - if @project.requirements.any?
       %h3 Progress
       %ol.requirements
-        = render @requirements
+        = render @project.requirements
     .text-center
       .btn-group.btn-group-sm
         - if current_user.admin?
@@ -20,10 +20,4 @@
 
 - if current_user.admin?
   /'Add a requirement' Modal
-  = render 'requirement_modal'
-
-/'Log a meeting' Modal
-= render 'meeting_modal'
-
-/'Report a bug' Modal
-= render 'bug_modal'
+  = render 'requirements/modal'
