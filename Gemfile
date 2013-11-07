@@ -38,7 +38,7 @@ end
 group :development do
   gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.1'
-  gem 'rubocop', '~> 0.14.1'
+  gem 'rubocop', '~> 0.15.0'
   gem 'annotate', '~> 2.6.0.beta2'
 end
 

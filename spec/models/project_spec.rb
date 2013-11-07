@@ -37,12 +37,12 @@ describe Project do
 
   describe 'requirement associations' do
     before { @project.save }
-    let!(:older_requirement) {
+    let!(:older_requirement) do
       FactoryGirl.create(:requirement, project: @project, created_at: 1.day.ago)
-    }
-    let!(:newer_requirement) {
+    end
+    let!(:newer_requirement) do
       FactoryGirl.create(:requirement, project: @project, created_at: 1.hour.ago)
-    }
+    end
 
     it 'should have the right requirements in the right order' do
       expect(@project.requirements.to_a).to eq [older_requirement, newer_requirement]

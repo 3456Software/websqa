@@ -55,15 +55,15 @@ describe 'Project pages' do
   describe 'project page' do
     let(:user) { FactoryGirl.create(:user) }
     let(:project) { FactoryGirl.create(:project) }
-    let!(:req1) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 1')}
-    let!(:req2) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 2')}
+    let!(:req1) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 1') }
+    let!(:req2) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 2') }
     before do
       sign_in user
       visit project_path(project)
     end
     it { should have_content(project.title) }
     it { should have_title(project.title) }
-    it { should_not have_link('Project administration')}
+    it { should_not have_link('Project administration') }
 
     context 'as an admin user' do
       let(:admin) { FactoryGirl.create(:admin) }
