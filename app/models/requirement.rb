@@ -17,6 +17,7 @@
 
 class Requirement < ActiveRecord::Base
   belongs_to :project
+
   validates :name,       presence: true, length: { maximum: 140 }
   validates :project_id, presence: true
 end

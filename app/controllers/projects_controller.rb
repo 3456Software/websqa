@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :signed_in_user
-  before_action :admin_user,     only: [:new, :create, :edit, :update, :destroy]
+  before_action :admin_user,    only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @project = Project.new
@@ -49,18 +49,5 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:title, :desc)
-    end
-
-    # Before filters
-    def signed_in_user
-      unless signed_in?
-        store_location
-        flash[:warning] = 'Please sign in.'
-        redirect_to signin_url
-      end
-    end
-
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
     end
 end

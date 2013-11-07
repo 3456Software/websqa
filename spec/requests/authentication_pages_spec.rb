@@ -41,35 +41,44 @@ describe 'Authentication' do
     context 'for non-signed-in users' do
       let(:user) { FactoryGirl.create(:user) }
 
-      describe 'in the Users controller' do
+      context 'in the Users controller' do
 
-        context 'visiting the edit page' do
+        describe 'visiting the edit page' do
           before { visit edit_user_path(user) }
           it { should have_title('Sign in') }
         end
 
-        context 'submitting to the update action' do
+        describe 'submitting to the update action' do
           before { patch user_path(user) }
           specify { expect(response).to redirect_to(signin_path) }
         end
 
-        context 'visiting the user index' do
+        describe 'visiting the user index' do
           before { visit users_path }
           it { should have_title('Sign in') }
         end
       end
 
-      describe 'in the Projects controller' do
+      context 'in the Projects controller' do
         let(:project) { FactoryGirl.create(:project) }
 
-        context 'visiting the show page' do
+        describe 'visiting the show page' do
           before { visit project_path(project) }
           it { should have_title('Sign in') }
         end
 
-        context 'visiting the project index' do
+        describe 'visiting the project index' do
           before { visit projects_path }
           it { should have_title('Sign in') }
+        end
+      end
+
+      context 'in the Requirements controller' do
+        let(:requirement) { FactoryGirl.create(:requirement) }
+
+        describe 'submitting to the update action' do
+          before { patch requirement_path(requirement) }
+          specify { expect(response).to redirect_to(signin_path) }
         end
       end
 
@@ -153,6 +162,19 @@ describe 'Authentication' do
 
         describe 'submitting a DELETE request to the Projects#destroy action' do
           before { delete project_path(project) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Requirements controller' do
+
+        describe 'submitting to the create action' do
+          before { post requirements_path }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting to the destroy action' do
+          before { delete requirement_path(FactoryGirl.create(:requirement)) }
           specify { expect(response).to redirect_to(root_url) }
         end
       end

@@ -1,5 +1,5 @@
 - provide(:title, 'New project')
-= form_for(@project, html: {class: 'form-project'}) do |f|
+= form_for(@project, html: { class: 'form-project' }) do |f|
   %h2.form-heading Create a new project
   = render 'fields', f: f
   = f.submit 'Create project', class: 'btn btn-lg btn-primary btn-block'
