@@ -1,0 +1,11 @@
+#bug.modal.fade{ tabindex: '-1', role: 'dialog', aria: { labelledby: 'bug_label', hidden: 'true' } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ type: 'button', data: { dismiss: 'modal' }, aria: { hidden: 'true' } } &times;
+        %h4#bug_label.modal-title Report a bug
+      .modal-body
+        Put the form here
+      .modal-footer
+        %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
+        %button.btn.btn-primary{ type: 'button'} Save changes
