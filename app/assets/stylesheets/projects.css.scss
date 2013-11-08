@@ -23,19 +23,13 @@
     padding: 10px 0;
     border-top: 1px solid #e5e5e5;
   }
+  .btn {
+    float: right;
+  }
   .name {
     display: block;
   }
   .timestamp {
     color: #999;
-  }
-  i.status {
-    font-size: 36px;
-    float: right;
-    width: 48px;
-    height: 48px;
-  }
-  .btn {
-    float: right;
   }
 }

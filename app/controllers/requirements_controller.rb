@@ -17,7 +17,7 @@ class RequirementsController < ApplicationController
   def update
     @requirement = Requirement.find_by(id: params[:id])
     if @requirement.update_attributes(update_params)
-      flash[:success] = "Requirement met."
+      flash[:success] = 'Requirement met.'
       redirect_to @requirement.project
     else
       redirect_to @requirement.project
@@ -45,5 +45,4 @@ class RequirementsController < ApplicationController
     def project
       Project.find(params[:requirement][:project_id])
     end
-
 end
