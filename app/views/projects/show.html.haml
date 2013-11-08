@@ -7,10 +7,10 @@
       - if current_user.admin?
         %p= link_to 'Project administration', edit_project_path(@project)
   .col-lg-8
-    - if @project.requirements.any?
+    - if @requirements.any?
       %h3 Progress
       %ol.requirements
-        = render @project.requirements
+        = render @requirements
     .text-center
       .btn-group.btn-group-sm
         - if current_user.admin?

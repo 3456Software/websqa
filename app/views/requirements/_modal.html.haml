@@ -6,7 +6,9 @@
         %h4#requirement_label.modal-title Add a requirement
       = form_for(@project.requirements.build) do |f|
         .modal-body
-          = f.text_field :name, class: 'form-control'
+          = render 'shared/error_messages', object: f.object
+          = f.hidden_field :project_id
+          = f.text_field :name, class: 'form-control', placeholder: 'Requirement name'
         .modal-footer
           %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
           = f.submit 'Save requirement', class: 'btn btn-primary'

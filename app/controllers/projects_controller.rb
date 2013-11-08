@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      flash[:success] = 'Project created'
+      flash[:success] = 'Project created.'
       redirect_to @project
     else
       render 'new'
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      flash[:success] = 'Project updated'
+      flash[:success] = 'Project updated.'
       redirect_to @project
     else
       render 'edit'
@@ -36,6 +36,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @requirements = @project.requirements
   end
 
   def destroy
@@ -46,6 +47,7 @@ class ProjectsController < ApplicationController
 
   private
 
+    # Secure params
     def project_params
       params.require(:project).permit(:title, :desc)
     end

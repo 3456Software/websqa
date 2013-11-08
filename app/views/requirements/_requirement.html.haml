@@ -4,3 +4,5 @@
     %strong Requirement:
     = requirement.name
   %span.timestamp= "Posted #{time_ago_in_words(requirement.created_at)} ago."
+  - if current_user.admin?
+    = link_to 'delete', requirement, method: :delete, data: { confirm: 'Are you sure?' }, title: requirement.name

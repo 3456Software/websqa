@@ -31,4 +31,31 @@ describe 'Requirement pages' do
       end
     end
   end
+
+  describe 'deleting a requirement' do
+    let(:project) { FactoryGirl.create(:project) }
+    let!(:requirement) { FactoryGirl.create(:requirement, project: project) }
+
+    context 'as a non-admin user' do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+        visit project_path(project)
+      end
+
+      it { should_not have_link 'delete' }
+    end
+
+    context 'as an admin' do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin
+        visit project_path(project)
+      end
+
+      it 'should delete a requirement' do
+        expect { click_link 'delete' }.to change(Requirement, :count).by(-1)
+      end
+    end
+  end
 end
