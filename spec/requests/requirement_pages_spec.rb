@@ -32,6 +32,24 @@ describe 'Requirement pages' do
     end
   end
 
+  describe 'updating a requirement' do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:project) { FactoryGirl.create(:project) }
+    let!(:requirement) { FactoryGirl.create(:requirement, project: project) }
+    before do
+      sign_in user
+      visit project_path(project)
+    end
+
+    context 'after clicking "Complete' do
+      before { click_button 'Complete' }
+
+      it { should_not have_button 'Complete' }
+      it { should have_content 'Requirement met' }
+      it { should have_content 'Completed' }
+    end
+  end
+
   describe 'deleting a requirement' do
     let(:project) { FactoryGirl.create(:project) }
     let!(:requirement) { FactoryGirl.create(:requirement, project: project) }

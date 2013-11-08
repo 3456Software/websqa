@@ -29,7 +29,13 @@
   .timestamp {
     color: #999;
   }
-  .checkbox {
+  i.status {
+    font-size: 36px;
+    float: right;
+    width: 48px;
+    height: 48px;
+  }
+  .btn {
     float: right;
   }
 }
