@@ -9,7 +9,6 @@ class RequirementsController < ApplicationController
       redirect_to project
     else
       flash[:danger] = 'There was an error adding requirement.'
-      # Show errors better
       redirect_to project
     end
   end
@@ -32,17 +31,15 @@ class RequirementsController < ApplicationController
 
   private
 
-    # Secure params
-    def create_params
-      params.require(:requirement).permit(:name)
-    end
+  def create_params
+    params.require(:requirement).permit(:name)
+  end
 
-    def update_params
-      params.require(:requirement).permit(:status, :date_completed)
-    end
+  def update_params
+    params.require(:requirement).permit(:status, :date_completed)
+  end
 
-    # Find the appropriate (owning) project
-    def project
-      Project.find(params[:requirement][:project_id])
-    end
+  def project
+    Project.find(params[:requirement][:project_id])
+  end
 end

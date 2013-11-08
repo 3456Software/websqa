@@ -47,8 +47,7 @@ class ProjectsController < ApplicationController
 
   private
 
-    # Secure params
-    def project_params
-      params.require(:project).permit(:title, :desc)
-    end
+  def project_params
+    params.require(:project).permit(:title, :desc)
+  end
 end

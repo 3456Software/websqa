@@ -1,4 +1,4 @@
-# Sessions allow users to be remembered between visits
+# Sessions allow users to be remembered between visits.
 class SessionsController < ApplicationController
   def new
   end
