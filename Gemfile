@@ -25,8 +25,8 @@ gem 'pry-rails', '~> 0.3.2'
 gem 'awesome_print', '~> 1.2.0'
 
 # style/assets gems
-gem 'bootstrap-sass', '~> 3.0.1.0.rc'
-gem 'font-awesome-rails', '~> 4.0.1'
+gem 'bootstrap-sass', '~> 3.0.2'
+gem 'font-awesome-rails', '~> 4.0.3'
 
 # coverage metrics
 gem 'coveralls', '~> 0.7.0', require: false
