@@ -16,6 +16,8 @@
 #
 
 class Requirement < ActiveRecord::Base
+  default_scope -> { order('created_at ASC') }
+
   belongs_to :project
 
   validates :name,       presence: true, length: { maximum: 140 }
