@@ -9,4 +9,5 @@
 #
 
 class Organization < ActiveRecord::Base
+  # NOT YET IMPLEMENTED
 end
