@@ -23,6 +23,12 @@ describe Project do
   it { should respond_to(:desc) }
   it { should respond_to(:requirements) }
 
+  it { should respond_to(:accesses) }
+  it { should respond_to(:members) }
+  it { should respond_to(:member?) }
+  it { should respond_to(:add_member!) }
+  it { should respond_to(:remove_member!) }
+
   it { should be_valid }
 
   context 'when title is not present' do
@@ -55,6 +61,29 @@ describe Project do
       requirements.each do |requirement|
         expect(Requirement.where(id: requirement.id)).to be_empty
       end
+    end
+  end
+
+  describe 'members' do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      @project.save
+      @project.add_member!(user)
+    end
+
+    it { should be_member(user) }
+    its(:members) { should include(user) }
+
+    context 'removing member' do
+      before { @project.remove_member!(user) }
+
+      it { should_not be_member(user) }
+      its(:members) { should_not include(user) }
+    end
+
+    describe 'member' do
+      subject { user }
+      its(:projects) { should include(@project) }
     end
   end
 end
