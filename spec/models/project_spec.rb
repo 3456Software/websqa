@@ -22,6 +22,7 @@ describe Project do
   it { should respond_to(:title) }
   it { should respond_to(:desc) }
   it { should respond_to(:requirements) }
+  it { should respond_to(:bug_reports) }
 
   it { should respond_to(:accesses) }
   it { should respond_to(:members) }

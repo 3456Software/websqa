@@ -11,6 +11,7 @@
 
 class Project < ActiveRecord::Base
   has_many :requirements, dependent: :destroy
+  has_many :bug_reports, dependent: :destroy
   has_many :accesses, dependent: :destroy
   has_many :members,  through: :accesses
 
