@@ -16,3 +16,4 @@ Developers, see [the setup instructions](https://github.com/3456Software/websqa/
 
 ## Contributors
  - Griffin Yourick <[gryphon92@gmail.com](mailto:gryphon92@gmail.com)>
+ - Brandon Roberts <[bran3@umbc.edu](mailto:bran3@umbc.edu)>
