@@ -6,10 +6,10 @@ gem 'rails', '~> 4.0.1'
 
 # some rails defaults
 gem 'sass-rails', '~> 4.0.1'
-gem 'uglifier', '~> 2.3.0'
+gem 'uglifier', '~> 2.3.1'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails', '~> 3.0.4'
-gem 'turbolinks', '~> 1.3.0'
+gem 'turbolinks', '~> 1.3.1'
 gem 'jbuilder', '~> 1.5.2'
 
 # other important gems
@@ -18,7 +18,7 @@ gem 'haml-rails', '~> 0.4'
 gem 'unicorn', '~> 4.7.0'
 gem 'foreman', '~> 0.63.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'ffaker', '~> 1.20.0'
+gem 'ffaker', '~> 1.21.0'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1.0.0'
 gem 'pry-rails', '~> 0.3.2'
