@@ -6,6 +6,12 @@
       %p=  @project.desc
       - if current_user.admin?
         %p= link_to 'Project administration', edit_project_path(@project)
+    %section
+      %h1 Users
+      - if current_user.admin?
+        %p= link_to 'Manage users', project_members_path(@project)
+      / %ol.users
+      /   = render @members
   .col-lg-8
     - if @requirements.any?
       %h3 Progress

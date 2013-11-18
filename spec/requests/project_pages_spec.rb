@@ -67,6 +67,7 @@ describe 'Project pages' do
     it { should_not have_button('Add a requirement') }
     it { should have_button('Log a meeting') }
     it { should have_button('Report a bug') }
+    it { should_not have_link('Manage users') }
 
     context 'as an admin user' do
       let(:admin) { FactoryGirl.create(:admin) }
@@ -76,6 +77,7 @@ describe 'Project pages' do
       end
       it { should have_link('Project administration') }
       it { should have_button('Add a requirement') }
+      it { should have_link('Manage users') }
     end
 
     describe 'requirements' do

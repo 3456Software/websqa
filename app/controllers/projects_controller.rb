@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @requirements = @project.requirements
+    @members = @project.members
   end
 
   def destroy
