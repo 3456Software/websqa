@@ -12,3 +12,6 @@ before_script:
   - psql -c 'create database websqa_test;' -U postgres
 env:
   - RAILS_ENV=test
+branches:
+  only:
+    - master
