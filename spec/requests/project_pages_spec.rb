@@ -57,6 +57,8 @@ describe 'Project pages' do
     let(:project) { FactoryGirl.create(:project) }
     let!(:req1) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 1') }
     let!(:req2) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 2') }
+    let!(:bug1) { FactoryGirl.create(:bug_report, project: project, name: 'Example bug 1') }
+    let!(:bug2) { FactoryGirl.create(:bug_report, project: project, name: 'Example bug 2') }
     before do
       sign_in user
       visit project_path(project)
@@ -83,6 +85,11 @@ describe 'Project pages' do
     describe 'requirements' do
       it { should have_content(req1.name) }
       it { should have_content(req2.name) }
+    end
+
+    describe 'bug reports' do
+      it { should have_link(bug1.name) }
+      it { should have_link(bug2.name) }
     end
 
     describe 'members' do

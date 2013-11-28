@@ -1,0 +1,20 @@
+%li
+  - if !bug_report.status
+    = form_for bug_report, method: :put do |f|
+      = f.hidden_field :status, value: true
+      = f.hidden_field :date_completed, value: DateTime.now
+      = f.submit 'Resolve', class: 'btn btn-success btn-sm'
+    %span.name
+      %strong Defect:
+      = link_to bug_report.name, bug_report
+    %span.timestamp= "Posted #{time_ago_in_words(bug_report.created_at)} ago."
+    - if current_user.admin?
+      = link_to 'delete', bug_report, method: :delete, data: { confirm: 'Are you sure?' }, title: bug_report.name
+  - else
+    = fa_icon 'check', class: 'text-success'
+    %span.name
+      %strong.text-success Resolved:
+      = bug_report.name
+    %span.timestamp= "Resolved #{time_ago_in_words(bug_report.date_completed)} ago."
+    - if current_user.admin?
+      = link_to 'delete', bug_report, method: :delete, data: { confirm: 'Are you sure?' }, title: bug_report.name

@@ -4,7 +4,7 @@
       .modal-header
         %button.close{ type: 'button', data: { dismiss: 'modal' }, aria: { hidden: 'true' } }   &times;
         %h4#requirement_label.modal-title Add a requirement
-      = form_for(@project.requirements.build) do |f|
+      = form_for(@project.requirements.build, html: { class: 'form-modal' }) do |f|
         .modal-body
           = render 'shared/error_messages', object: f.object
           = f.hidden_field :project_id

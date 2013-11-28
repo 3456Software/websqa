@@ -10,14 +10,18 @@
       %h1 Users
       - if current_user.admin?
         %p= link_to 'Manage users', project_members_path(@project)
-      - if @members.any?
+      - if @project.members.any?
         %ol.users-small
-          = render collection: @members, partial: 'shared/user_small', as: 'user'
+          = render collection: @project.members, partial: 'shared/user_small', as: 'user'
   .col-lg-8
-    - if @requirements.any?
-      %h3 Progress
+    - if @project.requirements.any?
+      %h3 Requirements
       %ol.requirements
-        = render @requirements
+        = render @project.requirements
+    - if @project.bug_reports.any?
+      %h3 Defects
+      %ol.requirements
+        = render @project.bug_reports
     .text-center
       .btn-group.btn-group-sm
         - if current_user.admin?
@@ -28,3 +32,5 @@
 - if current_user.admin?
   /'Add a requirement' Modal
   = render 'requirements/modal'
+
+= render 'bug_reports/modal'

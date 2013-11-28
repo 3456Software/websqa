@@ -65,6 +65,29 @@ describe Project do
     end
   end
 
+  describe 'bug_report associations' do
+    before { @project.save }
+    let!(:older_bug_report) do
+      FactoryGirl.create(:bug_report, project: @project, created_at: 1.day.ago)
+    end
+    let!(:newer_bug_report) do
+      FactoryGirl.create(:bug_report, project: @project, created_at: 1.hour.ago)
+    end
+
+    it 'should have the right bug reports in the right order' do
+      expect(@project.bug_reports.to_a).to eq [older_bug_report, newer_bug_report]
+    end
+
+    it 'should destroy associated bug reports' do
+      bug_reports = @project.bug_reports.to_a
+      @project.destroy
+      expect(bug_reports).not_to be_empty
+      bug_reports.each do |bug_report|
+        expect(BugReport.where(id: bug_report.id))
+      end
+    end
+  end
+
   describe 'members' do
     let(:user) { FactoryGirl.create(:user) }
     before do

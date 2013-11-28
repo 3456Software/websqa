@@ -41,7 +41,7 @@ describe 'Requirement pages' do
       visit project_path(project)
     end
 
-    context 'after clicking "Complete' do
+    context 'after clicking "Complete"' do
       before { click_button 'Complete' }
 
       it { should_not have_button 'Complete' }

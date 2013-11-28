@@ -16,11 +16,9 @@
 #  index_bug_reports_on_project_id_and_created_at  (project_id,created_at)
 #
 
-class BugReport < ActiveRecord::Base
-  default_scope -> { order('created_at ASC') }
-
-  belongs_to :project
-
-  validates :name,       presence: true, length: { maximum: 140 }
-  validates :project_id, presence: true
+FactoryGirl.define do
+  factory :bug_report do
+    name 'Example bug'
+    project
+  end
 end

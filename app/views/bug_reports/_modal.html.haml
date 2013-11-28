@@ -1,0 +1,15 @@
+#bug.modal.fade{ tabindex: '-1', role: 'dialog', aria: { labelledby: 'bug_label', hidden: 'true' } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ type: 'button', data: { dismiss: 'modal' }, aria: { hidden: 'true' } } &times;
+        %h4#bug_label.modal-title Report a bug
+      = form_for(@project.bug_reports.build, html: { class: 'form-modal' }) do |f|
+        .modal-body
+          = render 'shared/error_messages', object: f.object
+          = f.hidden_field :project_id
+          = f.text_field :name, class: 'form-control form-top', placeholder: 'Bug title'
+          = f.text_area  :description, class: 'form-control form-bot', placeholder: 'Bug description'
+        .modal-footer
+          %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
+          = f.submit 'Report bug', class: 'btn btn-primary'

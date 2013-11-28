@@ -33,12 +33,12 @@ describe Access do
     its(:project) { should eq project }
   end
 
-  describe "when project id is not present" do
+  describe 'when project id is not present' do
     before { access.project_id = nil }
     it { should_not be_valid }
   end
 
-  describe "when member id is not present" do
+  describe 'when member id is not present' do
     before { access.member_id = nil }
     it { should_not be_valid }
   end
