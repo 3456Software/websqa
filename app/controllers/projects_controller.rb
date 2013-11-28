@@ -46,6 +46,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
+  def members
+    @project = Project.find(params[:project_id])
+    @users = User.paginate(page: params[:page], per_page: 6)
+  end
+
   private
 
   def project_params

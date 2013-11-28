@@ -1,0 +1,12 @@
+- provide(:title, 'Manage users')
+.text-center
+  %h1= @project.title
+  %p Add or remove staff from the project
+.text-center
+  = will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: '&laquo;', next_label: '&raquo;'
+.row
+  .col-lg-6.col-lg-offset-3
+    %ul.users
+      = render collection: @users, partial: 'shared/member', as: 'user', locals: { project: @project }
+.text-center
+  = will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: '&laquo;', next_label: '&raquo;'

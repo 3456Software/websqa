@@ -84,6 +84,19 @@ describe 'Project pages' do
       it { should have_content(req1.name) }
       it { should have_content(req2.name) }
     end
+
+    describe 'members' do
+      let(:member1) { FactoryGirl.create(:user) }
+      let(:member2) { FactoryGirl.create(:user) }
+      before do
+        project.add_member!(member1)
+        project.add_member!(member2)
+        visit current_path # reload
+      end
+
+      it { should have_link(member1.name) }
+      it { should have_link(member2.name) }
+    end
   end
 
   describe 'edit' do

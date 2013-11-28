@@ -1,0 +1,5 @@
+%li
+  = gravatar_for user, size: 36
+  = link_to user.name, user
+  - if user.admin?
+    %p.admin-tag Admin
