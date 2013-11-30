@@ -1,9 +1,6 @@
 %li
+  = render partial: 'add_or_remove_member_form', locals: { project: project, user: user }
   = gravatar_for user, size: 52
-  - if project.members.includes(user)
-    = fa_icon 'minus'
-  - else
-    = fa_icon 'plus'
   = link_to user.name, user
   - if user.admin?
     %p.admin-tag Admin

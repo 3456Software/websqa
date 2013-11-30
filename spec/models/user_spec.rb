@@ -141,4 +141,22 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+
+  describe 'access' do
+    let(:project1) { FactoryGirl.create(:project) }
+    let(:project2) { FactoryGirl.create(:project) }
+    before do
+      @user.save
+      project1.save
+      project1.add_member!(@user)
+    end
+
+    its(:projects) { should include(project1) }
+    its(:projects) { should_not include(project2) }
+
+    describe 'project' do
+      subject { project1 }
+      its(:members) { should include(@user) }
+    end
+  end
 end

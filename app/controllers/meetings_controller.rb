@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :signed_in_user
+  before_action :admin_user,    only: [:destroy]
 
   def create
     @meeting = project.meetings.build(create_params)

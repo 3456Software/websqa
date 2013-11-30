@@ -112,25 +112,28 @@ describe Project do
     end
   end
 
-  describe 'members' do
-    let(:user) { FactoryGirl.create(:user) }
+  describe 'access' do
+    let(:user1) { FactoryGirl.create(:user) }
+    let(:user2) { FactoryGirl.create(:user) }
     before do
       @project.save
-      @project.add_member!(user)
+      @project.add_member!(user1)
     end
 
-    it { should be_member(user) }
-    its(:members) { should include(user) }
+    it { should be_member(user1) }
+    it { should_not be_member(user2) }
+    its(:members) { should include(user1) }
+    its(:members) { should_not include(user2) }
 
     context 'removing member' do
-      before { @project.remove_member!(user) }
+      before { @project.remove_member!(user1) }
 
-      it { should_not be_member(user) }
-      its(:members) { should_not include(user) }
+      it { should_not be_member(user1) }
+      its(:members) { should_not include(user1) }
     end
 
     describe 'member' do
-      subject { user }
+      subject { user1 }
       its(:projects) { should include(@project) }
     end
   end

@@ -102,6 +102,7 @@ describe 'Project pages' do
     describe 'members' do
       let(:member1) { FactoryGirl.create(:user) }
       let(:member2) { FactoryGirl.create(:user) }
+      let(:member3) { FactoryGirl.create(:user) }
       before do
         project.add_member!(member1)
         project.add_member!(member2)
@@ -110,6 +111,7 @@ describe 'Project pages' do
 
       it { should have_link(member1.name) }
       it { should have_link(member2.name) }
+      it { should_not have_link(member3.name) }
     end
   end
 
@@ -183,6 +185,63 @@ describe 'Project pages' do
             click_link('delete', match: :first)
           end.to change(Project, :count).by(-1)
         end
+      end
+    end
+  end
+
+  describe 'manage members' do
+    let(:admin) { FactoryGirl.create(:admin) }
+    let(:project) { FactoryGirl.create(:project) }
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in admin
+      visit project_members_path(project)
+    end
+    it { should have_title('Manage users') }
+    it { should have_content(project.title) }
+
+    it 'should list all users' do
+      User.paginate(page: 1, per_page: 6).each do |user|
+        expect(page).to have_selector('li', text: user.name)
+      end
+    end
+
+    it { should_not have_button 'Remove user' }
+
+    context 'adding a member' do
+      it "should increment the project's members count" do
+        expect do
+          click_button('Add user', match: :first)
+        end.to change(project.members, :count).by(1)
+      end
+
+      describe 'toggling the button' do
+        before { click_button('Add user', match: :first) }
+        it { should have_button 'Remove user' }
+      end
+    end
+
+    context 'removing a member' do
+      before do
+        project.add_member!(user)
+        visit current_path # reload
+      end
+
+      it "should decrement the project's members count" do
+        expect do
+          click_button('Remove user', match: :first)
+        end.to change(project.members, :count).by(-1)
+      end
+
+      it "should decrement the user's projects count" do
+        expect do
+          click_button('Remove user', match: :first)
+        end.to change(user.projects, :count).by(-1)
+      end
+
+      describe 'toggling the button' do
+        before { click_button('Remove user', match: :first) }
+        it { should have_button 'Add user' }
       end
     end
   end

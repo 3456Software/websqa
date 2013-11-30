@@ -33,7 +33,7 @@ describe Meeting do
   it { should respond_to(:description) }
   it { should respond_to(:date) }
   it { should respond_to(:date_string) }
-  its(:date_string) { should eq '2013-11-23 12:00:00 -0500'}
+  its(:date_string) { should eq '2013-11-23 12:00:00 -0500' }
   it { should respond_to(:project_id) }
   it { should respond_to(:project) }
   its(:project) { should eq project }

@@ -1,0 +1,9 @@
+- if project.member?(user)
+  = form_for(project.accesses.find_by(member_id: user.id), html: { method: :delete } ) do |f|
+    = f.submit 'Remove user', class: 'btn btn-danger'
+- else
+  = form_for(project.accesses.build(member_id: user.id)) do |f|
+    = f.hidden_field :project_id
+    = f.hidden_field :member_id
+    = f.submit 'Add user', class: 'btn btn-primary'
+

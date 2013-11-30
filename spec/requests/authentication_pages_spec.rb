@@ -168,13 +168,42 @@ describe 'Authentication' do
 
       context 'in the Requirements controller' do
 
-        describe 'submitting to the create action' do
+        describe 'submitting a POST request to the Requirements#create action' do
           before { post requirements_path }
           specify { expect(response).to redirect_to(root_url) }
         end
 
-        describe 'submitting to the destroy action' do
+        describe 'submitting a DELETE request to the Requirements#destroy action' do
           before { delete requirement_path(FactoryGirl.create(:requirement)) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the BugReports controller' do
+
+        describe 'submitting a DELETE request to the BugReports#destroy action' do
+          before { delete bug_report_path(FactoryGirl.create(:bug_report)) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Meetings controller' do
+
+        describe 'submitting a DELETE request to the Meetings#destroy action' do
+          before { delete meeting_path(FactoryGirl.create(:meeting)) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Accesses controller' do
+
+        describe 'submitting a POST request to the Accesses#create action' do
+          before { post accesses_path }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a DELETE request to the Accesses#destroy action' do
+          before { delete access_path(1) }
           specify { expect(response).to redirect_to(root_url) }
         end
       end
