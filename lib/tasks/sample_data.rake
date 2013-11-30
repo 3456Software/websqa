@@ -5,6 +5,7 @@ namespace :db do
     make_projects
     add_requirements
     add_bug_reports
+    add_meetings
     add_users_to_projects
   end
 end
@@ -49,6 +50,11 @@ def add_bug_reports
     name = "Example bug #{n+1}"
     projects.each { |project| project.bug_reports.create(name: name) }
   end
+end
+
+def add_meetings
+  projects = Project.all(limit: 6)
+  projects.each { |project| project.meetings.create(name: 'Example meeting', date: 1.day.ago) }
 end
 
 def add_users_to_projects

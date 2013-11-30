@@ -1,4 +1,5 @@
 %li
+  = fa_icon 'tasks', class: 'type-icon'
   - if !requirement.status
     = form_for requirement, method: :put do |f|
       = f.hidden_field :status, value: true
@@ -8,14 +9,12 @@
       %strong Requirement:
       = requirement.name
     %span.timestamp= "Posted #{time_ago_in_words(requirement.created_at)} ago."
-    - if current_user.admin?
-      = link_to 'delete', requirement, method: :delete, data: { confirm: 'Are you sure?' }, title: requirement.name
   - else
     = fa_icon 'check', class: 'text-success'
     %span.name
       %strong.text-success Requirement:
       = requirement.name
     %span.timestamp= "Completed #{time_ago_in_words(requirement.date_completed)} ago."
-    - if current_user.admin?
-      = link_to 'delete', requirement, method: :delete, data: { confirm: 'Are you sure?' }, title: requirement.name
+  - if current_user.admin?
+    = link_to 'delete', requirement, method: :delete, data: { confirm: 'Are you sure?' }, title: requirement.name
 

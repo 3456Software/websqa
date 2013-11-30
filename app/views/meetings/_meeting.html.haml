@@ -1,0 +1,8 @@
+%li
+  = fa_icon 'group', class: 'type-icon'
+  %span.name
+    %strong Meeting:
+    = meeting.name
+  %span.timestamp= "Occured on #{meeting.date.strftime('%A, %B %e, %Y at %l:%M %p')}."
+  - if current_user.admin?
+    = link_to 'delete', meeting, method: :delete, data: { confirm: 'Are you sure?' }, title: meeting.name

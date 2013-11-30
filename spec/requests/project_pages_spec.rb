@@ -59,6 +59,8 @@ describe 'Project pages' do
     let!(:req2) { FactoryGirl.create(:requirement, project: project, name: 'Example requirement 2') }
     let!(:bug1) { FactoryGirl.create(:bug_report, project: project, name: 'Example bug 1') }
     let!(:bug2) { FactoryGirl.create(:bug_report, project: project, name: 'Example bug 2') }
+    let!(:mtg1) { FactoryGirl.create(:meeting, project: project, name: 'Example meeting 1', date: 1.day.ago) }
+    let!(:mtg2) { FactoryGirl.create(:meeting, project: project, name: 'Example meeting 2', date: 1.hour.ago) }
     before do
       sign_in user
       visit project_path(project)
@@ -90,6 +92,11 @@ describe 'Project pages' do
     describe 'bug reports' do
       it { should have_link(bug1.name) }
       it { should have_link(bug2.name) }
+    end
+
+    describe 'meetings' do
+      it { should have_content(mtg1.name) }
+      it { should have_content(mtg2.name) }
     end
 
     describe 'members' do

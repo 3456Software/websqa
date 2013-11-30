@@ -1,4 +1,4 @@
-# == Route Map (Updated 2013-11-28 13:09)
+# == Route Map (Updated 2013-11-29 21:17)
 #
 #          Prefix Verb   URI Pattern                             Controller#Action
 #           users GET    /users(.:format)                        users#index
@@ -29,6 +29,8 @@
 #      bug_report PATCH  /bug_reports/:id(.:format)              bug_reports#update
 #                 PUT    /bug_reports/:id(.:format)              bug_reports#update
 #                 DELETE /bug_reports/:id(.:format)              bug_reports#destroy
+#        meetings POST   /meetings(.:format)                     meetings#create
+#         meeting DELETE /meetings/:id(.:format)                 meetings#destroy
 #        accesses POST   /accesses(.:format)                     accesses#create
 #          access DELETE /accesses/:id(.:format)                 accesses#destroy
 #            root GET    /                                       static_pages#home
@@ -52,6 +54,7 @@ Websqa::Application.routes.draw do
   end
   resources :requirements, only: [:create, :update, :destroy]
   resources :bug_reports,  only: [:create, :update, :destroy]
+  resources :meetings,     only: [:create, :destroy]
   resources :accesses,     only: [:create, :destroy]
   root 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'

@@ -25,13 +25,13 @@ describe 'Bug Report pages' do
       context 'with valid information' do
         before { fill_in 'bug_report_name', with: 'Example bug' }
 
-        it ' should create a requirement' do
+        it 'should create a bug report' do
           expect { click_button 'Report bug' }.to change(BugReport, :count).by(1)
         end
       end
     end
 
-    describe 'updating a requirement' do
+    describe 'updating a bug report' do
       let(:user) { FactoryGirl.create(:user) }
       let(:project) { FactoryGirl.create(:project) }
       let!(:bug_report) { FactoryGirl.create(:bug_report, project: project) }
@@ -45,7 +45,7 @@ describe 'Bug Report pages' do
 
         it { should_not have_button 'Resolve' }
         it { should have_content 'Bug resolved' }
-        it { should have_content 'Resolved'}
+        it { should have_content 'Resolved' }
       end
     end
 

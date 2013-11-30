@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap', '~> 1'
 gem 'pry-rails', '~> 0.3.2'
 gem 'awesome_print', '~> 1.2'
+gem 'chronic', '~> 0.10.2'
 
 # style/assets gems
 gem 'bootstrap-sass', '~> 3.0.2'
@@ -39,7 +40,7 @@ group :development do
   gem 'better_errors', '~> 1.0.1'
   gem 'binding_of_caller', '~> 0.7.1'
   gem 'rubocop', '~> 0.15'
-  gem 'annotate', '~> 2.6.0.beta2'
+  gem 'annotate', '~> 2.6'
 end
 
 group :test do

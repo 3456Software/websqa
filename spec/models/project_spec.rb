@@ -23,6 +23,7 @@ describe Project do
   it { should respond_to(:desc) }
   it { should respond_to(:requirements) }
   it { should respond_to(:bug_reports) }
+  it { should respond_to(:meetings) }
 
   it { should respond_to(:accesses) }
   it { should respond_to(:members) }
@@ -84,6 +85,29 @@ describe Project do
       expect(bug_reports).not_to be_empty
       bug_reports.each do |bug_report|
         expect(BugReport.where(id: bug_report.id))
+      end
+    end
+  end
+
+  describe 'meeting associations' do
+    before { @project.save }
+    let!(:older_meeting) do
+      FactoryGirl.create(:meeting, project: @project, date: 1.day.ago)
+    end
+    let!(:newer_meeting) do
+      FactoryGirl.create(:meeting, project: @project, date: 1.hour.ago)
+    end
+
+    it 'should have the right meetings in the right order' do
+      expect(@project.meetings.to_a).to eq [older_meeting, newer_meeting]
+    end
+
+    it 'should destroy associated meetings' do
+      meetings = @project.meetings.to_a
+      @project.destroy
+      expect(meetings).not_to be_empty
+      meetings.each do |meeting|
+        expect(BugReport.where(id: meeting.id))
       end
     end
   end

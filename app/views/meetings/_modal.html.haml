@@ -1,0 +1,16 @@
+#meeting.modal.fade{ tabindex: '-1', role: 'dialog', aria: { labelledby: 'meeting_label', hidden: 'true' } }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ type: 'button', data: { dismiss: 'modal' }, aria: { hidden: 'true' } } &times;
+        %h4#meeting_label.modal-title Log a meeting
+      = form_for(@project.meetings.build, html: { class: 'form-modal' }) do |f|
+        .modal-body
+          = render 'shared/error_messages', object: f.object
+          = f.hidden_field :project_id
+          = f.text_field :name, class: 'form-control form-top', placeholder: 'Meeting name'
+          = f.text_field :date_string, class: 'form-control form-mid', placeholder: "'#{Chronic.parse('yesterday at noon').to_s(:db)}' or 'Yesterday at noon'"
+          = f.text_area :description, class: 'form-control form-bot', placeholder: 'Meeting description'
+        .modal-footer
+          %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
+          = f.submit 'Log meeting', class: 'btn btn-primary'

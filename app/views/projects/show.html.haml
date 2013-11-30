@@ -22,15 +22,20 @@
       %h3 Defects
       %ol.requirements
         = render @project.bug_reports
+    - if @project.meetings.any?
+      %h3 Meetings
+      %ol.requirements
+        = render @project.meetings
     .text-center
       .btn-group.btn-group-sm
         - if current_user.admin?
           %button.btn.btn-primary{ data: { toggle: 'modal', target: '#requirement' } } Add a requirement
-        %button.btn.btn-primary{ data: { toggle: 'modal', target: '#meeting' } } Log a meeting
         %button.btn.btn-primary{ data: { toggle: 'modal', target: '#bug' } } Report a bug
-
+        %button.btn.btn-primary{ data: { toggle: 'modal', target: '#meeting' } } Log a meeting
 - if current_user.admin?
   /'Add a requirement' Modal
   = render 'requirements/modal'
-
+/'Report a bug' Modal
 = render 'bug_reports/modal'
+/'Log a meeting' Modal
+= render 'meetings/modal'

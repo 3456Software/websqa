@@ -19,5 +19,7 @@ module Websqa
     config.generators do |g|
       g.assets false
     end
+
+    config.time_zone = 'EST'
   end
 end

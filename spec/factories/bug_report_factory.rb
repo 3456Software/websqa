@@ -19,6 +19,7 @@
 FactoryGirl.define do
   factory :bug_report do
     name 'Example bug'
+    description 'A short description.'
     project
   end
 end
