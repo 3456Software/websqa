@@ -38,6 +38,7 @@ describe 'Requirement pages' do
     let!(:requirement) { FactoryGirl.create(:requirement, project: project) }
     before do
       sign_in user
+      project.add_member!(user)
       visit project_path(project)
     end
 
@@ -58,6 +59,7 @@ describe 'Requirement pages' do
       let(:user) { FactoryGirl.create(:user) }
       before do
         sign_in user
+        project.add_member!(user)
         visit project_path(project)
       end
 

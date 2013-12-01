@@ -63,6 +63,7 @@ describe 'Project pages' do
     let!(:mtg2) { FactoryGirl.create(:meeting, project: project, name: 'Example meeting 2', date: 1.hour.ago) }
     before do
       sign_in user
+      project.add_member!(user)
       visit project_path(project)
     end
     it { should have_content(project.title) }

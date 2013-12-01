@@ -124,6 +124,52 @@ describe 'Authentication' do
       end
     end
 
+    context 'as a non-member of a project' do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:project) { FactoryGirl.create(:project) }
+      let!(:requirement) { FactoryGirl.create(:requirement, project: project) }
+
+      before { sign_in user, no_capybara: true }
+
+      context 'in the Projects controller' do
+
+        describe 'submitting a GET request to the Projects#show action' do
+          before { get project_path(project) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Requirements controller' do
+
+        describe 'submitting a PATCH request to the Requirements#update action' do
+          before { patch requirement_path(requirement) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the BugReports controller' do
+        let!(:bug_report) { FactoryGirl.create(:bug_report, project: project) }
+
+        describe 'submitting a POST request to the BugReports#create action' do
+          before { post bug_reports_path, bug_report: { project_id: project.id } }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+
+        describe 'submitting a PATCH request to the BugReports#update action' do
+          before { patch bug_report_path(bug_report) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      context 'in the Meetings controller' do
+
+        describe 'submitting a POST request to the Meetings#create action' do
+          before { post meetings_path, meeting: { project_id: project.id } }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+    end
+
     context 'as non-admin user' do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }

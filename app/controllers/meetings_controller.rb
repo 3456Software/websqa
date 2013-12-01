@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :signed_in_user
+  before_action :member, only: [:create]
   before_action :admin_user,    only: [:destroy]
 
   def create
@@ -27,5 +28,13 @@ class MeetingsController < ApplicationController
 
   def project
     Project.find(params[:meeting][:project_id])
+  end
+
+  # Before filters
+  def member
+    unless project.member?(current_user) || current_user.admin?
+      flash[:warning] = 'You do not have access to this project.'
+      redirect_to root_url
+    end
   end
 end

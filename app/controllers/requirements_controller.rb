@@ -1,6 +1,7 @@
 class RequirementsController < ApplicationController
   before_action :signed_in_user
-  before_action :admin_user,    only: [:create, :destroy]
+  before_action :member,     only: [:update]
+  before_action :admin_user, only: [:create, :destroy]
 
   def create
     @requirement = project.requirements.build(create_params)
@@ -41,5 +42,14 @@ class RequirementsController < ApplicationController
 
   def project
     Project.find(params[:requirement][:project_id])
+  end
+
+  # Before filters
+  def member
+    project = Requirement.find_by(id: params[:id]).project
+    unless project.member?(current_user) || current_user.admin?
+      flash[:warning] = 'You do not have access to this project.'
+      redirect_to root_url
+    end
   end
 end

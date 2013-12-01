@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :signed_in_user
-  before_action :admin_user,    only: [:new, :create, :edit, :update, :destroy]
+  before_action :member_of_project, only: [:show]
+  before_action :admin_user,        only: [:new, :create, :edit, :update, :destroy, :members]
 
   def new
     @project = Project.new
@@ -53,5 +54,14 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :desc)
+  end
+
+  # Before filters
+  def member_of_project
+    project = Project.find(params[:id])
+    unless project.member?(current_user) || current_user.admin?
+      flash[:warning] = 'You do not have access to this project.'
+      redirect_to root_url
+    end
   end
 end
