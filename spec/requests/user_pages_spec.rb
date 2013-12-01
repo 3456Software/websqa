@@ -52,6 +52,12 @@ describe 'User pages' do
     before { visit user_path(user) }
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    it "lists all of a user's projects" do
+      user.projects.each do |project|
+        expect(page).to have_selector('li', text: project.title)
+      end
+    end
   end
 
   describe 'edit' do

@@ -48,13 +48,20 @@ def add_bug_reports
   projects = Project.all(limit: 6)
   2.times do |n|
     name = "Example bug #{n+1}"
-    projects.each { |project| project.bug_reports.create(name: name) }
+    description = "A short description of example bug #{n+1} goes here."
+    projects.each do |project|
+      project.bug_reports.create(name: name, description: description)
+    end
   end
 end
 
 def add_meetings
   projects = Project.all(limit: 6)
-  projects.each { |project| project.meetings.create(name: 'Example meeting', date: 1.day.ago) }
+  projects.each do |project|
+    project.meetings.create(name: 'Example meeting',
+                            description: 'A short description of the meeting goes here, including any attendees.',
+                            date: 1.day.ago)
+  end
 end
 
 def add_users_to_projects

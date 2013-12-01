@@ -1,5 +1,4 @@
 %li
-  = fa_icon 'tasks', class: 'type-icon'
   - if !requirement.status
     = form_for requirement, method: :put do |f|
       = f.hidden_field :status, value: true

@@ -32,7 +32,11 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.paginate(page: params[:page], per_page: 10)
+    if current_user.admin?
+      @projects = Project.paginate(page: params[:page], per_page: 10)
+    else
+      @projects = current_user.projects.paginate(page: params[:page], per_page: 10)
+    end
   end
 
   def show

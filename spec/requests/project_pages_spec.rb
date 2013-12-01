@@ -157,12 +157,26 @@ describe 'Project pages' do
     after(:all) { Project.delete_all }
     before do
       sign_in user
+      Project.limit(6).each { |p| p.add_member!(user) }
       visit projects_path
     end
     it { should have_title('Projects') }
     it { should have_content('Projects') }
 
-    describe 'pagination' do
+    it { should_not have_selector('ul.pagination') }
+    it "should list the user's projects" do
+      user.projects.each do |project|
+        expect(page).to have_selector('li', text: project.title)
+      end
+    end
+
+    context 'as an admin user' do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin
+        visit projects_path
+      end
+
       it { should have_selector('ul.pagination') }
       it 'should list each project' do
         Project.paginate(page: 1, per_page: 10).each do |project|

@@ -41,14 +41,14 @@ describe 'Meeting pages' do
     let!(:meeting) { FactoryGirl.create(:meeting, project: project) }
 
     context 'as a non-admin user' do
-    let(:user) { FactoryGirl.create(:user) }
-    before do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
         sign_in user
         project.add_member!(user)
         visit project_path(project)
       end
 
-    it { should_not have_link 'delete' }
+      it { should_not have_link 'delete' }
     end
 
     context 'as an admin' do

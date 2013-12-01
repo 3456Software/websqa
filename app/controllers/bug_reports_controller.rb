@@ -54,7 +54,7 @@ class BugReportsController < ApplicationController
   end
 
   def member_update
-    project = project = BugReport.find_by(id: params[:id]).project
+    project = BugReport.find_by(id: params[:id]).project
     unless project.member?(current_user) || current_user.admin?
       flash[:warning] = 'You do not have access to this project.'
       redirect_to root_url

@@ -7,3 +7,14 @@
         = @user.name
       - if @user.admin?
         %p.admin-tag Admin
+  .col-lg-8
+    %h3 Projects
+    - unless @user.projects.any?
+      %p You aren't in any projects yet.
+    - else
+      - if current_user?(@user)
+        %ol.projects
+          = render @user.projects
+      - else
+        %ol.projects
+          = render collection: @user.projects, partial: 'projects/project_simple', as: 'project'
