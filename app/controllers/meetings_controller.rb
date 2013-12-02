@@ -23,7 +23,7 @@ class MeetingsController < ApplicationController
   private
 
   def create_params
-    params.require(:meeting).permit(:name, :date_string)
+    params.require(:meeting).permit(:name, :date_string, :description)
   end
 
   def project

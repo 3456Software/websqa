@@ -34,7 +34,7 @@ class BugReportsController < ApplicationController
   private
 
   def create_params
-    params.require(:bug_report).permit(:name)
+    params.require(:bug_report).permit(:name, :description)
   end
 
   def update_params
