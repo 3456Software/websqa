@@ -18,6 +18,8 @@
 #
 
 class User < ActiveRecord::Base
+  default_scope -> { order('id ASC') }
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   has_many :accesses, foreign_key: 'member_id', dependent: :destroy

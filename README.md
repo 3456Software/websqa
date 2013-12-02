@@ -14,6 +14,8 @@ Please see the **UMBC** CMSC 345 Fall 2013
 
 Developers, see [the setup instructions](https://github.com/3456Software/websqa/blob/master/SETUP.md).
 
+For some help using the system, see [the notes](https://github.com/3456Software/websqa/blob/master/NOTES.md).
+
 ## Contributors
  - Griffin Yourick <[gryphon92@gmail.com](mailto:gryphon92@gmail.com)>
  - Brandon Roberts <[bran3@umbc.edu](mailto:bran3@umbc.edu)>
