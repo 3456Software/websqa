@@ -20,3 +20,4 @@ For some help using the system, see [the notes](https://github.com/3456Software/
  - Griffin Yourick <[gryphon92@gmail.com](mailto:gryphon92@gmail.com)>
  - Brandon Roberts <[bran3@umbc.edu](mailto:bran3@umbc.edu)>
  - Nikolaus Woehlke <[roderickpale@gmail.com](mailto:roderickpale@gmail.com)>
+ - Thomas Zuby <[tzuby1@umbc.edu](mailto:tzuby1@umbc.edu)>
