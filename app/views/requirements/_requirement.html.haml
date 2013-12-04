@@ -1,5 +1,5 @@
 %li
-  - if !requirement.status
+  - unless requirement.status
     = form_for requirement, method: :put do |f|
       = f.hidden_field :status, value: true
       = f.hidden_field :date_completed, value: DateTime.now
@@ -17,7 +17,7 @@
       = requirement.name
     %span.description
       %p= requirement.description
-    %span.timestamp= "Completed #{time_ago_in_words(requirement.date_completed)} ago."
+    %span.timestamp= "Posted #{time_ago_in_words(requirement.created_at)} ago, completed #{time_ago_in_words(requirement.date_completed)} ago."
   - if current_user.admin?
     = link_to 'delete', requirement, method: :delete, data: { confirm: 'Are you sure?' }, title: requirement.name
 
