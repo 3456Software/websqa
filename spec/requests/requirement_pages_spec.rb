@@ -47,7 +47,7 @@ describe 'Requirement pages' do
 
       it { should_not have_button 'Complete' }
       it { should have_content 'Requirement met' }
-      it { should have_content 'Completed' }
+      it { should have_content 'completed' }
     end
   end
 

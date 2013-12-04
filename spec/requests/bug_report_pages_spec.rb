@@ -48,7 +48,7 @@ describe 'Bug Report pages' do
 
       it { should_not have_button 'Resolve' }
       it { should have_content 'Bug resolved' }
-      it { should have_content 'Resolved' }
+      it { should have_content 'resolved' }
     end
   end
 
