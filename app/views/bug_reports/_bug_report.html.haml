@@ -6,7 +6,7 @@
       = f.submit 'Resolve', class: 'btn btn-success btn-sm'
     %span.name
       %strong Defect:
-      = link_to bug_report.name, bug_report
+      = bug_report.name
     %span.description
       %p= bug_report.description
     %span.timestamp= "Posted #{time_ago_in_words(bug_report.created_at)} ago."
@@ -14,7 +14,7 @@
     = fa_icon 'check', class: 'text-success'
     %span.name
       %strong.text-success Resolved:
-      = link_to bug_report.name, bug_report
+      = bug_report.name
     %span.description
       %p= bug_report.description
     %span.timestamp= "Resolved #{time_ago_in_words(bug_report.date_completed)} ago."

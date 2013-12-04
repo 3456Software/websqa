@@ -29,6 +29,6 @@ class Meeting < ActiveRecord::Base
   end
 
   def date_string=(date_string)
-    self.date = Chronic.parse(date_string)
+    self.date = Chronic.parse(date_string, context: :past)
   end
 end

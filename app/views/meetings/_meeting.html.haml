@@ -4,6 +4,6 @@
     = meeting.name
   %span.description
     %p= meeting.description
-  %span.timestamp= "Occured on #{meeting.date.strftime('%A, %B %e, %Y at %l:%M %p')}."
+  %span.timestamp= "Occured on #{meeting.date.localtime.strftime('%A, %B %e, %Y at %l:%M %p')}."
   - if current_user.admin?
     = link_to 'delete', meeting, method: :delete, data: { confirm: 'Are you sure?' }, title: meeting.name

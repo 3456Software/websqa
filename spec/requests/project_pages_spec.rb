@@ -91,8 +91,8 @@ describe 'Project pages' do
     end
 
     describe 'bug reports' do
-      it { should have_link(bug1.name) }
-      it { should have_link(bug2.name) }
+      it { should have_content(bug1.name) }
+      it { should have_content(bug2.name) }
     end
 
     describe 'meetings' do
