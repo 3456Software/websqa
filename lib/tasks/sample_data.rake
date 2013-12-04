@@ -40,7 +40,8 @@ def add_requirements
   projects = Project.all(limit: 6)
   6.times do |n|
     name = "Example requirement #{n+1}"
-    projects.each { |project| project.requirements.create(name: name) }
+    description = "A short description of requirement #{n+1} goes here."
+    projects.each { |project| project.requirements.create(name: name, description: description) }
   end
 end
 
