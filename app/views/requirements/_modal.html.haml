@@ -8,7 +8,8 @@
         .modal-body
           = render 'shared/error_messages', object: f.object
           = f.hidden_field :project_id
-          = f.text_field :name, class: 'form-control', placeholder: 'Requirement name'
+          = f.text_field :name, class: 'form-control form-top', placeholder: 'Requirement name'
+          = f.text_area :description, class: 'form-control form-bot', placeholder: 'Requirement description'
         .modal-footer
           %button.btn.btn-default{ type: 'button', data: { dismiss: 'modal' } } Close
           = f.submit 'Save requirement', class: 'btn btn-primary'

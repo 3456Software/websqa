@@ -33,7 +33,7 @@ class RequirementsController < ApplicationController
   private
 
   def create_params
-    params.require(:requirement).permit(:name)
+    params.require(:requirement).permit(:name, :description)
   end
 
   def update_params

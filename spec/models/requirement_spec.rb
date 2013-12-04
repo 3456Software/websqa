@@ -9,6 +9,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  project_id     :integer
+#  description    :text
 #
 # Indexes
 #
@@ -31,6 +32,7 @@ describe Requirement do
   it { should respond_to(:project_id) }
   it { should respond_to(:project) }
   its(:project) { should eq project }
+  it { should respond_to(:description) }
 
   it { should be_valid }
 

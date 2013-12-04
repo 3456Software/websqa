@@ -9,6 +9,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  project_id     :integer
+#  description    :text
 #
 # Indexes
 #

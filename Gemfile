@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # most importantly, rails!
-gem 'rails', '~> 4.0.1'
+gem 'rails', '~> 4.0.2'
 
 # some rails defaults
 gem 'sass-rails', '~> 4.0.1'
-gem 'uglifier', '~> 2.3.1'
+gem 'uglifier', '~> 2.3.2'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails', '~> 3.0.4'
 gem 'turbolinks', '~> 1.3.1'
-gem 'jbuilder', '~> 1.5.2'
+gem 'jbuilder', '~> 1.5.3'
 
 # other important gems
 gem 'pg', '~> 0.17'
